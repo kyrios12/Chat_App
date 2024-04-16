@@ -1,6 +1,5 @@
 # Gossips_App
 This chat application provides basic messaging functionality along with features like emojis, mentions, and message likes. Enjoy Your talk with strangers.
-Sure! Here's a Tech Stack list based on the technologies used in the provided chat application:
 
 ### Tech Stack:
 
@@ -75,7 +74,11 @@ Sure! Here's a Tech Stack list based on the technologies used in the provided ch
 
 - **Input Component**: ![image](https://github.com/kyrios12/Chat_App/assets/103828615/a63c0682-a468-4c9c-bbc8-4b83a5bd5e8d)
 
+  
+
 - **Emoji Picker**: ![image](https://github.com/kyrios12/Chat_App/assets/103828615/de2ac758-fc51-4ab4-b369-8e9632dfeb93)
+
+  
 
 ## Routes
 
