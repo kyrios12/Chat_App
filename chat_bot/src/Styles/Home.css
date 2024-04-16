@@ -66,7 +66,9 @@
     border-radius: 50%;
     margin-right: 10px; 
 }
-
+.output{
+    margin-top: 10px;
+}
 .output .msg{
     background-color: #fff; 
     color: #333; 

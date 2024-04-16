@@ -3,21 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faFaceSmile } from "@fortawesome/free-solid-svg-icons";
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
-import { LikeButton } from "@lyket/react";
 import { Form, Image } from "react-bootstrap";
 import "../Styles/Home.css";
 import io from "socket.io-client";
 
-// To Complete
-// Show both sent and recived messages // Pending
-// Emojis problem //Completed
-// Emoji Picker should be above not below // Completed
-// Like Count Increment Problem When the already clicked user clicks it toggles otherwise it increments //Pending
-// Create mentions feature // Completed
-// (Ignore) When user clicks outside the textarea and clicks enter the messages doesnot triggers
-
-
-// UserClicks on Like-> Increment Likes(If same user again clicks on the like button decrement count) -> Show the incremented Likes all over the chat for all users
 const socket = io.connect("http://localhost:8080");
 const user_list = ["Alan", "Bob", "Carol", "Dean", "Elin"];
 
@@ -61,14 +50,10 @@ const HomePage = () => {
   };
 
   const handleLikeCount = (id) => {
-    // Find the message by id
     const message = messages.find((msg) => msg.id === id);
-    // Increase the like count of the message
     message.likeCount+=1;
-    console.log(message);
-    // Emit the updated message to the server
-    // socket.emit("like", message);
-    // Update the state with the modified messages array
+    console.log(message.likeCount);
+    socket.emit("like", message);
     setMessages((prevMessages) =>
       prevMessages.map((msg) => (msg.id === id ? message : msg))
     );
@@ -100,18 +85,18 @@ const HomePage = () => {
     socket.on("recieved_msg", (data) => {
       setMessages((prevMessages) => [...prevMessages, data]);
     });
-    // socket.on("updateLikes", (message) => {
-    //   setMessages((prevMessages) => {
-    //     const index = prevMessages.findIndex((msg) => msg.id === message.id);
-    //     if (index !== -1) {
-    //       const updatedMessages = [...prevMessages];
-    //       updatedMessages[index] = message;
-    //       return updatedMessages;
-    //     } else {
-    //       return prevMessages;
-    //     }
-    //   });
-    // });
+    socket.on("updateLikes", (message) => {
+      setMessages((prevMessages) => {
+        const index = prevMessages.findIndex((msg) => msg.id === message.id);
+        if (index !== -1) {
+          const updatedMessages = [...prevMessages];
+          updatedMessages[index] = message;
+          return updatedMessages;
+        } else {
+          return prevMessages;
+        }
+      });
+    });
 
     return () => {
       socket.off("recieved_msg");
@@ -139,10 +124,7 @@ const HomePage = () => {
               <div className="output">
                 <span className="msg">{msg}</span>
 
-                {/* Like count increment problem */}
-                {/* this button also has totalLikes */}
-                <LikeButton onPress={() => handleLikeCount(id)}></LikeButton>
-                {/* <span onClick={(id)=>handleLikeCount(id)} className="like">💓:{likeCount}</span> */}
+                <span onClick={()=>handleLikeCount(id)} className="like">👍  {likeCount>0 ? `: ${likeCount}` : ''}</span>
               </div>
             </div>
           ))}

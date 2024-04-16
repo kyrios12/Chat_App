@@ -23,9 +23,9 @@ io.on("connection", (socket) => {
     io.emit('recieved_msg',data);
   })
 
-  // socket.on('like',(message)=>{
-  //     io.emit('updateLikes',message);
-  // })
+  socket.on('like',(message)=>{
+      io.emit('updateLikes',message);
+  })
 
   socket.on('emoji',(data)=>{
     io.emit('emoji',data)
