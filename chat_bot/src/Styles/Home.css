@@ -1,0 +1,97 @@
+.container {
+    height: 85vh;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #82EEFD;
+    overflow-y: scroll;
+}
+
+.send {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px; 
+}
+
+.send textarea {
+    width: calc(100% - 200px); 
+    min-height: 40px; 
+    border-radius: 20px; 
+    font-family: Arial, sans-serif;
+    padding: 10px; 
+    resize: none; 
+}
+.isVisible{
+    display: block;
+    position: relative;
+    margin-bottom: 500px;
+}
+.emoji-picker-container {
+    position: absolute;
+    top: 170px; 
+    left: 10px;
+    z-index: 1; 
+}
+.mention-list{
+   border: 2px solid black;
+   background-color: #f1f1f1;
+   border-radius: 5px;
+   display: flex;
+   font-size: 1.25rem;
+   justify-content: space-evenly;
+   padding: 5px;
+   position: absolute;
+   cursor: pointer;
+   top: 560px;
+   left: 117px;
+}
+
+.mention-list .user{
+    margin-left: 5px;
+    margin-right: 2px;
+    border-right: 2px solid purple;
+    box-shadow: #333;
+}
+  
+.msg_container{
+    margin-bottom: 10px;
+}
+.msg_container img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+.output .msg{
+    background-color: #fff; 
+    color: #333; 
+    border-radius: 10px; 
+    padding: 10px 15px; 
+    margin: 2px 8px 0px 35px;    
+    max-width: 70%; 
+}
+.output .like{
+   cursor: pointer;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 4px; 
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
