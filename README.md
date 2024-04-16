@@ -53,7 +53,7 @@ This chat application provides basic messaging functionality along with features
 
 ## Getting Started
 
-1. Clone the repository: [GIT Repo](https://github.com/kyrios12/Chat_App)
+1. Clone the repository: (https://github.com/kyrios12/Chat_App)
 2. Project live Demo: Pending
 3. Navigate to the project directory and extract the files.
 4. Run `npm install` to install the required packages.
@@ -89,22 +89,23 @@ This chat application provides basic messaging functionality along with features
 Exceptions are handled for scenarios like:
 
 1. **Socket Connection Error Handling**:
-   - If there's an error connecting to the Socket.io server (`io.connect("http://localhost:8080")`), the application might not be able to establish a real-time connection. It's common to handle this scenario by displaying an error message to the user and possibly providing a way to retry the connection.
+   - If there's an error while connecting to the Socket.io server (`io.connect("http://localhost:8080")`). 
 
 2. **Message Sending Error Handling**:
-   - Errors might occur when attempting to send messages to the server via Socket.io's `emit` function (`socket.emit("send", newMsg)`). It's important to handle such errors gracefully, possibly by displaying a notification to the user indicating that the message failed to send.
+   - Errors might occur when attempting to send messages to the server via Socket.io's `emit` function (`socket.emit("send", newMsg)`). This is handled by implementing error first 
+callbacks.
 
 3. **Data Parsing Error Handling**:
-   - Errors might occur when parsing data received from the server, especially if the data format is unexpected or invalid. Proper error handling mechanisms, such as try-catch blocks or conditional checks, should be implemented to handle parsing errors and prevent application crashes.
+   - Errors might occur when parsing data received from the server, especially if the data format is unexpected or invalid. Using try-catch blocks this error is handled.
 
 4. **Input Validation**:
-   - The application should validate user input, especially for critical operations like sending messages. Input validation helps prevent errors and ensures data integrity. For example, the application should check if the message content is empty or exceeds a certain length limit before attempting to send it.
+   - The application should validate user input, especially for critical operations like sending messages. Input validation helps prevent errors and ensures data integrity. For example, the application checks by triming the spaces in input if there is still data then only it sends otherwise message wont send.
 
 5. **State Update Error Handling**:
-   - Errors might occur when updating the application state, especially if the state changes are based on asynchronous operations or user interactions. It's important to handle state update errors gracefully to prevent application crashes and maintain a consistent user experience.
+   - Errors might occur when updating the application state, especially if the state changes are based on asynchronous operations or user interactions. It's important to handle state update errors gracefully to prevent application crashes and maintain a consistent user experience. The app handles these error by keeping check points and using try-catch blocks.
 
 6. **Network Error Handling**:
-   - Network errors, such as timeouts or connection failures, can occur when communicating with the server via Socket.io. The application should handle these errors by displaying appropriate error messages to the user and possibly providing options for retrying the operation.
+   - Network errors, such as timeouts or connection failures, can occur when communicating with the server via Socket.io. The application these error by sending respective error status codes.
 
 7. **Error Logging**:
-   - Implementing error logging mechanisms can help track and debug errors that occur in the application. Logging errors to the console or a server-side logging service can provide valuable insights for troubleshooting and improving the application's stability.
+   - Implementing error logging mechanisms can help track and debug errors that occur in the application. Used console.error to log the errors.
