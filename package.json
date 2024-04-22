@@ -1,0 +1,17 @@
+{
+  "name": "exact_space",
+  "version": "1.0.0",
+  "description": "This chat application provides basic messaging functionality along with features like emojis, mentions, and message likes. Enjoy Your talk with strangers.",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd backend && npm install",
+    "start-server": "cd backend && node index.js",
+    "install-client": "cd chat_bot && npm install",
+    "build-client": "cd chat_bot && npm run build",
+    "start-client": "cd chat_bot && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
