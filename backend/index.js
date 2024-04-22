@@ -11,7 +11,7 @@ const server = require("http").createServer(app);
 app.use(cors());
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://chat-app-ebon-two.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
