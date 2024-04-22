@@ -7,7 +7,7 @@ import { Form, Image } from "react-bootstrap";
 import "../Styles/Home.css";
 import io from "socket.io-client";
 
-const socket = io.connect("https://chat-app-nak8.vercel.app/");
+const socket = io.connect("https://chat-app-ebon-two.vercel.app/");
 const user_list = ["Alan", "Bob", "Carol", "Dean", "Elin"];
 
 const HomePage = () => {
