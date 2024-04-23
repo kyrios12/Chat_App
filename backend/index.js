@@ -11,7 +11,7 @@ const server = require("http").createServer(app);
 app.use(cors());
 const io = new Server(server, {
   cors: {
-    origin: "https://chat-app-mysz.vercel.app/",
+    origin: "http://localhost:3000/",
     methods: ["GET", "POST"],
   },
 });
